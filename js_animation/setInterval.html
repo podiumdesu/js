@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+<title>setInterval/clearInterval example</title>
+<script type="text/javascript">
+var nIntervId;
+
+function changeColor() {
+   setInterval(flashText, 500);
+}
+
+function flashText() {
+  var para = document.getElementsByTagName("p");
+  if (para[0].style.display == "block") {
+    para[0].style.display = "none";
+    para[1].style.display = "block";
+  } else {
+    para[0].style.display = "block";
+    para[1].style.display = "none";
+  }
+}
+
+function stopTextColor() {
+  clearInterval(nIntervId);
+}
+</script>
+</head>
+
+<body onload="changeColor()">
+<div id="my_box">
+<p class="test" style="display:block;">Hello World</p>
+<p class="test">ddddd</p>
+</div>
+<button onclick="stopTextColor();">Stop</button>
+</body>
+</html>
